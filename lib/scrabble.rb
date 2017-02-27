@@ -1,33 +1,8 @@
-require 'pry'
-
 class Scrabble
 
   def score(word)
-    word.upcase.chars.map do |letter|
-      point_values[letter]
-    end.reduce(:+)
+    1
   end
-
-  def score_with_multipliers(word, multipliers, word_multipler = 1)
-    points = word.upcase.chars.each_with_index.map do |letter, index|
-      (point_values[letter] * multipliers[index]) * word_multipler
-    end
-
-    points = points.reduce(:+)
-
-    if word.length == 7 
-      points = points + 10 * word_multipler
-    end
-    points
-  end
-
-  def highest_scoring_word(words)
-    scores = words.each_with_index.map do |word, index|
-      score(word)
-    end
-    words[scores.index(scores.max)]
-  end
-
 
   def point_values
     {
@@ -41,6 +16,3 @@ class Scrabble
     }
   end
 end
-
-game = Scrabble.new
-print game.highest_scoring_word(['hello', 'word', 'sounds'])
