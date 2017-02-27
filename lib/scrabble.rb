@@ -1,7 +1,18 @@
 class Scrabble
 
   def score(word)
-    1
+    point_values[word.upcase]
+  end
+
+  def score_with_multipliers(word, multipliers, word_multiplier = 1)
+    chars = word.chars
+    score = chars.map.each_with_index do |character, index|
+      score(character) * multipliers[index]
+    end.reduce(:+)
+    if word.length == 7
+      score += 10
+    end
+     score * word_multiplier
   end
 
   def point_values
