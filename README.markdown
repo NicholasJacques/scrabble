@@ -2,6 +2,8 @@
 
 See the instructions for this workshop at http://tutorials.jumpstartlab.com/academy/assessments/scrabble.html
 
+More instructions here: http://backend.turing.io/module1/student_homework/scrabble_challenge
+
 ### Setup
 
 After cloning, run `bundle` to install dependencies.
